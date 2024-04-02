@@ -1,24 +1,22 @@
-#include <iostream>
-#include <math.h>
+#include <bits/stdc++.h>
 using namespace std;
-void print(int m , int n){
-    for (int i = 0; i < m; i++){
-        cout << " ";
+
+int round_with_math(double x){
+    if (x >= 0){
+        if (x - int(x) >= 0.5) return ceil(x);
+        return floor(x);
     }
-    for (int i = 0; i < n; i++){
-        cout << "*";
+    else{
+        if (x - int(x) >= -0.5) return ceil(x);
+        return floor(x);
     }
 }
 
-void triagle(int n){
-    for (int i = 0; i < n; i++){
-        print(n-1-i, 2*i + 1);
-        cout << endl;
-
-    }
+int round_without_math(double x){
+    if (x >= 0) return int(x+0.5);
+    return int(x-0.5);
 }
 int main(){
-    int n; cin >> n;
-    triagle(n);
-    return 0;
-}
+    double x; cin >> x;
+    cout << round_without_math(x) << endl;
+
